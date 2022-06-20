@@ -1,0 +1,30 @@
+buildscript {
+  ext {
+    compose_version = "1.0.1"
+    paging_version = "1.0.0-alpha12"
+    kotlin_version = "1.5.21"
+    ktor_version = "1.5.2"
+    room_version = "2.4.0-alpha04"
+  }
+  repositories {
+    google()
+    mavenCentral()
+    maven { url "https://kotlin.bintray.com/kotlinx" }
+  }
+  dependencies {
+    classpath('com.android.tools.build:gradle:7.0.0')
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+  }
+}
+
+allprojects {
+  repositories {
+    google()
+    mavenCentral()
+    maven { url "https://kotlin.bintray.com/kotlinx" }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}
