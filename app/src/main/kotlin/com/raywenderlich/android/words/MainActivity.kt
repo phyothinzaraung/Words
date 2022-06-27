@@ -62,11 +62,15 @@ class MainActivity : AppCompatActivity() {
     setContent {
         val isLoading by viewModel.isLoading.collectAsState()
         val words by viewModel.words.collectAsState()
+        val search by viewModel.search.collectAsState()
         Log.v("Words", words.toString())
         WordsTheme {
             when {
                 isLoading -> LoadingUi()
-                else -> WordListUi(words)
+                else -> WordListUi(
+                    words,
+                    search = search,
+                    onSearch = viewModel::search)
             }
         }
 //      WordsTheme {
